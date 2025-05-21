@@ -1,0 +1,76 @@
+---
+title: Quick Start Guide
+description: Deploy your first application to Nexlayer in minutes.
+---
+
+# Quick Start Guide
+
+This guide will walk you through deploying your first application to Nexlayer. You'll have a live application in just a few minutes!
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Nexlayer account (sign up at [nexlayer.io](https://nexlayer.io) if you don't have one)
+- Docker installed on your local machine
+- Your application code ready to deploy
+
+## Step 1: Create a Nexlayer YAML File
+
+Create a file named `nexlayer.yaml` in the root of your project with the following content:
+
+\`\`\`yaml
+application:
+  name: "my-first-app"
+  pods:
+    - name: "web"
+      image: "nginx:latest"  # Replace with your own image
+      servicePorts:
+        - 80
+\`\`\`
+
+This simple configuration will deploy a single container running Nginx.
+
+## Step 2: Deploy Your Application
+
+You have several options for deploying your application:
+
+### Option 1: Use the Nexlayer CLI
+
+\`\`\`bash
+# Install the Nexlayer CLI
+curl -sSL https://get.nexlayer.io | bash
+
+# Deploy your application
+nexlayer deploy
+\`\`\`
+
+### Option 2: Use the Web Interface
+
+1. Go to [app.nexlayer.io](https://app.nexlayer.io)
+2. Click on "New Deployment"
+3. Upload your `nexlayer.yaml` file
+4. Click "Deploy"
+
+### Option 3: Use the API
+
+\`\`\`bash
+curl -X POST "https://app.nexlayer.io/startUserDeployment" \
+  -H "Content-Type: text/x-yaml" \
+  --data-binary @nexlayer.yaml
+\`\`\`
+
+## Step 3: Access Your Application
+
+Once your application is deployed, you'll receive a URL where you can access it. This typically takes less than a minute.
+
+## Next Steps
+
+Now that you've deployed your first application, you might want to:
+
+- [Configure custom domains](/docs/custom-domains)
+- [Set up environment variables](/docs/environment-variables)
+- [Add persistent storage](/docs/persistent-storage)
+- [Configure auto-scaling](/docs/auto-scaling)
+
+Congratulations on deploying your first application with Nexlayer!

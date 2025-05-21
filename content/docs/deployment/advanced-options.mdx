@@ -1,0 +1,159 @@
+---
+title: "Advanced Deployment Options"
+description: "Learn about advanced deployment configurations and options in Nexlayer"
+version: "v1"
+---
+
+# Advanced Deployment Options
+
+Nexlayer provides several advanced deployment options to give you fine-grained control over your applications.
+
+## Resource Allocation
+
+You can specify CPU and memory resources for each component of your application:
+
+\`\`\`yaml
+application:
+  name: my-app
+  components:
+    - name: api
+      resources:
+        cpu: 1
+        memory: 2Gi
+    - name: worker
+      resources:
+        cpu: 2
+        memory: 4Gi
+\`\`\`
+
+## Scaling
+
+Configure auto-scaling for your components based on CPU or memory usage:
+
+\`\`\`yaml
+application:
+  name: my-app
+  components:
+    - name: api
+      scaling:
+        min: 2
+        max: 10
+        metrics:
+          - type: cpu
+            target: 80
+\`\`\`
+
+## Health Checks
+
+Define health checks to ensure your application is running correctly:
+
+\`\`\`yaml
+application:
+  name: my-app
+  components:
+    - name: api
+      healthCheck:
+        path: /health
+        port: 3000
+        initialDelaySeconds: 30
+        periodSeconds: 10
+\`\`\`
+
+## Custom Domains
+
+Add custom domains to your application:
+
+\`\`\`yaml
+application:
+  name: my-app
+  domains:
+    - api.example.com
+    - www.example.com
+\`\`\`
+
+## Environment-specific Configurations
+
+Use different configurations for different environments:
+
+\`\`\`yaml
+application:
+  name: my-app
+  environments:
+    production:
+      components:
+        - name: api
+          scaling:
+            min: 3
+            max: 20
+    staging:
+      components:
+        - name: api
+          scaling:
+            min: 1
+            max: 5
+\`\`\`
+
+## Secrets Management
+
+Securely manage sensitive information:
+
+\`\`\`yaml
+application:
+  name: my-app
+  secrets:
+    - name: DATABASE_URL
+      value: ${DATABASE_URL}
+    - name: API_KEY
+      value: ${API_KEY}
+\`\`\`
+
+## Deployment Strategies
+
+Configure how updates are rolled out:
+
+\`\`\`yaml
+application:
+  name: my-app
+  deploymentStrategy:
+    type: rolling
+    maxUnavailable: 25%
+    maxSurge: 25%
+\`\`\`
+
+## Network Policies
+
+Define network policies to control traffic between components:
+
+\`\`\`yaml
+application:
+  name: my-app
+  networkPolicies:
+    - name: api-to-db
+      from:
+        - component: api
+      to:
+        - component: database
+      ports:
+        - 5432
+\`\`\`
+
+## Persistent Storage
+
+Configure persistent storage for your components:
+
+\`\`\`yaml
+application:
+  name: my-app
+  components:
+    - name: database
+      storage:
+        - name: data
+          size: 10Gi
+          mountPath: /var/lib/postgresql/data
+\`\`\`
+
+## Next Steps
+
+- [View deployment metrics](/docs/monitoring/metrics)
+- [Set up CI/CD pipelines](/docs/deployment/ci-cd)
+- [Configure alerts](/docs/monitoring/alerts)

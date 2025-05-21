@@ -1,0 +1,109 @@
+/* YAML syntax highlighting theme for the entire documentation site */
+.yaml-highlighter,
+.visual-yaml-renderer {
+  font-family: "Fira Code", "Consolas", "Monaco", "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d4d4d4;
+  background-color: #000000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+  position: relative;
+}
+
+.yaml-line {
+  display: flex;
+  white-space: pre;
+}
+
+.yaml-line:hover {
+  background-color: rgba(38, 79, 120, 0.2);
+}
+
+.line-numbers {
+  color: #6e7681;
+  user-select: none;
+  text-align: right;
+  padding-right: 1rem;
+  min-width: 2.5rem;
+  display: inline-block;
+}
+
+/* YAML syntax elements - consistent colors across all components */
+.yaml-key {
+  color: #699edb; /* Blue for keys */
+}
+
+.yaml-value {
+  color: #49de80; /* Green for values */
+}
+
+.yaml-string {
+  color: #49de80; /* Green for quoted strings */
+}
+
+.yaml-number {
+  color: #f471b5; /* Pink for numbers */
+}
+
+.yaml-comment {
+  color: #6a9955; /* Green for comments */
+  font-style: italic;
+}
+
+.yaml-special {
+  color: #c084fc; /* Purple for special values */
+  font-weight: bold;
+}
+
+.yaml-dash {
+  color: #d4d4d4; /* Default color for list dashes */
+}
+
+.yaml-colon {
+  color: #d4d4d4;
+  margin-right: 0.5rem;
+}
+
+.yaml-pod-reference {
+  color: #49de80; /* Green for pod references */
+}
+
+.yaml-template-variable {
+  color: #699edb; /* Blue for template variables */
+  font-style: italic;
+}
+
+/* Copy button styling */
+.yaml-copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 1px solid #444;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  color: #d4d4d4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.yaml-highlighter:hover .yaml-copy-button,
+.visual-yaml-renderer:hover .yaml-copy-button {
+  opacity: 1;
+}
+
+.yaml-copy-button:hover {
+  background-color: rgba(60, 60, 60, 0.7);
+  border-color: #666;
+}
+
+.yaml-copy-button svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.25rem;
+}

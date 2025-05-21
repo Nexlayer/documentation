@@ -1,0 +1,54 @@
+---
+title: "Learning Nexlayer"
+description: "Get started with Nexlayer and learn how to deploy your applications"
+version: "v1"
+---
+
+# Learning Nexlayer
+
+Welcome to the Nexlayer learning center. This guide will help you understand how Nexlayer works and how to use it effectively for your applications.
+
+## What is Nexlayer?
+
+Nexlayer is an AI-powered cloud platform that simplifies deploying and scaling applications. With Nexlayer, you define your application structure in a simple YAML file, and our platform handles all the complex infrastructure details automatically.
+
+## How Nexlayer Works
+
+Nexlayer uses a declarative approach to deployment. You describe what you want your application to look like, and our AI figures out how to make it happen.
+
+\`\`\`yaml
+application:
+  name: "my-ai-app"
+  pods:
+    - name: "web"
+      image: "user-name/web:latest"
+      servicePorts:
+        - 3000
+\`\`\`
+
+This simple YAML file is all you need to deploy a web application to Nexlayer. Our platform will:
+
+1. Provision the necessary infrastructure
+2. Pull your container image
+3. Configure networking
+4. Set up monitoring and logging
+5. Provide you with a URL to access your application
+
+## Key Concepts
+
+### Pods
+
+Pods are the smallest deployable units in Nexlayer. Each pod represents a container that runs your application code.
+
+### Services
+
+Services define how your pods are exposed to the internet or to other pods within your application.
+
+### Volumes
+
+Volumes provide persistent storage for your applications, ensuring that your data remains available even if pods are restarted.
+
+## Next Steps
+
+Ready to start deploying? Check out our [Quick Start Guide](/docs/getting-started/quick-start) to deploy your first application, or explore our [CLI documentation](/docs/cli/overview) to learn about our command-line tools.
+\`\`\`

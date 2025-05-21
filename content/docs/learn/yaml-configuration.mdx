@@ -1,0 +1,130 @@
+---
+title: "YAML Configuration"
+description: "Learn how to configure your applications using Nexlayer YAML"
+version: "v1"
+---
+
+# YAML Configuration
+
+Nexlayer uses YAML files to define your application's structure and behavior. This guide will help you understand how to write effective YAML configurations for your applications.
+
+## Basic Structure
+
+Every Nexlayer YAML file starts with an `application` block that defines your application:
+
+\`\`\`yaml
+application:
+  name: "my-application"
+  # Additional configuration goes here
+\`\`\`
+
+## Defining Pods
+
+Pods are the core of your application. Each pod represents a container that runs your code:
+
+\`\`\`yaml
+application:
+  name: "my-application"
+  pods:
+    - name: "web"
+      image: "nginx:latest"
+      servicePorts:
+        - 80
+\`\`\`
+
+### Pod Properties
+
+| Property | Description | Required |
+|----------|-------------|----------|
+| name | The name of the pod | Yes |
+| image | The Docker image to use | Yes |
+| servicePorts | Ports to expose | No |
+| env | Environment variables | No |
+| resources | CPU and memory limits | No |
+
+## Environment Variables
+
+You can define environment variables for your pods:
+
+\`\`\`yaml
+application:
+  name: "my-application"
+  pods:
+    - name: "web"
+      image: "my-image:latest"
+      env:
+        - name: "DATABASE_URL"
+          value: "postgres://user:password@host:port/db"
+        - name: "API_KEY"
+          value: "my-api-key"
+\`\`\`
+
+## Resource Allocation
+
+You can specify CPU and memory resources for your pods:
+
+\`\`\`yaml
+application:
+  name: "my-application"
+  pods:
+    - name: "web"
+      image: "my-image:latest"
+      resources:
+        cpu: 1
+        memory: "512Mi"
+\`\`\`
+
+## Advanced Configuration
+
+For more advanced configuration options, check out our [Advanced Deployment Options](/docs/deployment/advanced-options) guide.
+
+## Example: Full Application
+
+Here's an example of a complete application with multiple pods:
+
+\`\`\`yaml
+application:
+  name: "my-full-app"
+  pods:
+    - name: "web"
+      image: "my-web-image:latest"
+      servicePorts:
+        - 80
+      env:
+        - name: "API_URL"
+          value: "http://api:3000"
+      resources:
+        cpu: 0.5
+        memory: "256Mi"
+    
+    - name: "api"
+      image: "my-api-image:latest"
+      servicePorts:
+        - 3000
+      env:
+        - name: "DATABASE_URL"
+          value: "postgres://user:password@db:5432/mydb"
+      resources:
+        cpu: 1
+        memory: "512Mi"
+    
+    - name: "db"
+      image: "postgres:13"
+      servicePorts:
+        - 5432
+      env:
+        - name: "POSTGRES_USER"
+          value: "user"
+        - name: "POSTGRES_PASSWORD"
+          value: "password"
+        - name: "POSTGRES_DB"
+          value: "mydb"
+      resources:
+        cpu: 1
+        memory: "1Gi"
+\`\`\`
+
+## Next Steps
+
+Now that you understand how to configure your applications with YAML, you're ready to deploy! Check out our [CLI documentation](/docs/cli/overview) to learn how to use our command-line tools to deploy your applications.
+\`\`\`

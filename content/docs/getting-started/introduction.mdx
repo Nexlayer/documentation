@@ -1,0 +1,47 @@
+---
+title: Introduction to Nexlayer
+description: Learn what Nexlayer is and how it can help you deploy AI applications.
+---
+
+# Introduction to Nexlayer
+
+Nexlayer is an AI-powered cloud platform that simplifies deploying and scaling applications. With Nexlayer, you define your application structure in a simple YAML file, and our platform handles all the complex infrastructure details automatically.
+
+## Key Features
+
+- **Zero DevOps**: Focus on your code, not infrastructure
+- **AI-Optimized**: Built specifically for AI and ML workloads
+- **Instant Deployment**: Go from code to production in seconds
+- **Automatic Scaling**: Handle traffic spikes without manual intervention
+- **Cost Efficient**: Pay only for what you use
+
+## How It Works
+
+Nexlayer uses a declarative approach to deployment. You describe what you want your application to look like, and our AI figures out how to make it happen.
+
+\`\`\`yaml
+application:
+  name: "my-ai-app"
+  pods:
+    - name: "web"
+      image: "user-name/web:latest"
+      servicePorts:
+        - 3000
+\`\`\`
+
+This simple YAML file is all you need to deploy a web application to Nexlayer. Our platform will:
+
+1. Provision the necessary infrastructure
+2. Pull your container image
+3. Configure networking
+4. Set up monitoring and logging
+5. Provide you with a URL to access your application
+
+## Getting Started
+
+Ready to deploy your first application? Check out our [Quick Start Guide](/docs/getting-started/quick-start) to get up and running in minutes.
+
+<Callout type="info" icon="ℹ️">
+  Nexlayer is currently in beta. We're constantly adding new features and improving the platform based on user feedback.
+</Callout>
+\`\`\`

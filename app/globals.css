@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #111111;
+  --foreground: #ffffff;
+
+  /* Primary color - teal */
+  --primary: 180 100% 30%;
+  --primary-foreground: 0 0% 100%;
+  --primary-50: 180 100% 95%;
+  --primary-100: 180 100% 90%;
+  --primary-200: 180 100% 80%;
+  --primary-300: 180 100% 70%;
+  --primary-400: 180 100% 60%;
+  --primary-500: 180 100% 50%;
+  --primary-600: 180 100% 40%;
+  --primary-700: 180 100% 30%;
+  --primary-800: 180 100% 20%;
+  --primary-900: 180 100% 10%;
+  --primary-950: 180 100% 5%;
+
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --accent: #00ffcc;
+  --accent-foreground: #000000;
+  --muted: #333333;
+  --muted-foreground: #888888;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --border: #333333;
+  --input: #333333;
+  --ring: #22b4c8;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #ffffff;
+  --primary: 180 100% 30%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --accent: #00ffcc;
+  --accent-foreground: #000000;
+  --muted: #333333;
+  --muted-foreground: #888888;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --border: #333333;
+  --input: #333333;
+  --ring: #22b4c8;
+}
+
+body {
+  background-color: var(--background);
+  background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexlayer-background-grid-K7zVWFIHgHj17Jb8BwSJP3hjcgqRrz.svg");
+  color: var(--foreground);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #22b4c8 0%, #1da3b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.teal-glow {
+  box-shadow: 0 0 15px rgba(34, 180, 200, 0.5);
+}
+
+.code-block {
+  background-color: #0a0a0a;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+}
+
+.timeline-connector {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--primary);
+  transform: translateX(-50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Typography styles for MDX content */
+.prose .anchor {
+  @apply invisible absolute no-underline;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply text-primary-500 transition-all decoration-primary-300 underline-offset-2 hover:text-primary-600 hover:decoration-primary-400;
+}
+
+.prose .anchor:after {
+  @apply text-primary-300;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose pre {
+  @apply border border-neutral-800 bg-neutral-900;
+}
+
+.prose code {
+  @apply rounded-lg border border-neutral-800 bg-neutral-900 px-1 py-0.5 text-neutral-200;
+}
+
+.prose pre code {
+  @apply p-0 text-neutral-200;
+  border: initial;
+  background-color: initial;
+}
+
+.prose img {
+  @apply m-0;
+}
+
+.prose > :first-child {
+  margin-top: 1.25rem !important;
+}
+
+.prose > :last-child {
+  margin-bottom: 1.25rem !important;
+}
+
+.prose code::before,
+.prose code::after {
+  content: "" !important;
+}
+
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: "" !important;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-primary-500 bg-neutral-800/20 px-4 py-1;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply scroll-mt-24;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply font-medium;
+}

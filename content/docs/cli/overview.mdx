@@ -1,0 +1,95 @@
+---
+title: "CLI Overview"
+description: "Learn how to use the Nexlayer CLI to deploy and manage your applications"
+version: "v1"
+---
+
+# Nexlayer CLI
+
+The Nexlayer Command Line Interface (CLI) is a powerful tool that allows you to deploy, manage, and monitor your applications directly from your terminal.
+
+## Installation
+
+Install the Nexlayer CLI using npm:
+
+\`\`\`bash
+npm install -g @nexlayer/cli
+\`\`\`
+
+Or using yarn:
+
+\`\`\`bash
+yarn global add @nexlayer/cli
+\`\`\`
+
+## Authentication
+
+Before using the CLI, you need to authenticate:
+
+\`\`\`bash
+nexlayer login
+\`\`\`
+
+This will open a browser window where you can log in to your Nexlayer account.
+
+## Basic Commands
+
+### Deploy an Application
+
+Deploy your application using a YAML configuration file:
+
+\`\`\`bash
+nexlayer deploy -f nexlayer.yaml
+\`\`\`
+
+### List Deployments
+
+View all your current deployments:
+
+\`\`\`bash
+nexlayer list
+\`\`\`
+
+### Get Deployment Status
+
+Check the status of a specific deployment:
+
+\`\`\`bash
+nexlayer status <deployment-id>
+\`\`\`
+
+### Delete a Deployment
+
+Remove a deployment:
+
+\`\`\`bash
+nexlayer delete <deployment-id>
+\`\`\`
+
+## Configuration Reference
+
+The Nexlayer CLI uses YAML files for configuration. See the [Configuration Reference](/docs/configuration/yaml-reference) for detailed information on how to structure your configuration files.
+
+## Environment Variables
+
+You can use environment variables in your configuration files:
+
+\`\`\`yaml
+application:
+  name: my-app
+  env:
+    DATABASE_URL: ${DATABASE_URL}
+    API_KEY: ${API_KEY}
+\`\`\`
+
+Then, you can provide these variables when deploying:
+
+\`\`\`bash
+nexlayer deploy -f nexlayer.yaml --env-file .env
+\`\`\`
+
+## Next Steps
+
+- [Learn about YAML Configuration](/docs/configuration/yaml-reference)
+- [Deploy your first application](/docs/getting-started/quick-start)
+- [Explore advanced deployment options](/docs/deployment/advanced-options)

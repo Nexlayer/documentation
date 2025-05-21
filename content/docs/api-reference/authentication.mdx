@@ -1,0 +1,104 @@
+---
+title: "API Authentication"
+description: "Learn how to authenticate with the Nexlayer API"
+version: "v1"
+---
+
+# API Authentication
+
+This guide explains how to authenticate with the Nexlayer API to access protected endpoints.
+
+## API Keys
+
+The Nexlayer API uses API keys for authentication. Each API key is associated with a specific user account and has specific permissions.
+
+### Obtaining an API Key
+
+To obtain an API key:
+
+1. Log in to your Nexlayer account
+2. Navigate to Settings > API Keys
+3. Click "Create New API Key"
+4. Enter a name for your API key (e.g., "Development", "Production")
+5. Select the permissions you want to grant to this key
+6. Click "Create"
+
+Your API key will be displayed once. Make sure to copy it and store it securely, as you won't be able to view it again.
+
+### API Key Security
+
+API keys should be kept secure:
+
+- Never share your API key publicly
+- Don't commit API keys to version control
+- Use environment variables to store API keys in your applications
+- Rotate API keys regularly
+
+## Using API Keys
+
+To authenticate with the Nexlayer API, include your API key in the `Authorization` header of your requests:
+
+\`\`\`
+Authorization: Bearer YOUR_API_KEY
+\`\`\`
+
+### Example: cURL
+
+\`\`\`bash
+curl -X GET "https://app.nexlayer.io/getReservations" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+\`\`\`
+
+### Example: JavaScript
+
+\`\`\`javascript
+fetch('https://app.nexlayer.io/getReservations', {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${apiKey}`
+  }
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+\`\`\`
+
+### Example: Python
+
+\`\`\`python
+import requests
+
+headers = {
+    'Authorization': f'Bearer {api_key}'
+}
+
+response = requests.get('https://app.nexlayer.io/getReservations', headers=headers)
+data = response.json()
+print(data)
+\`\`\`
+
+## Session Tokens
+
+For some operations, particularly those related to deployments, you'll need to use session tokens instead of API keys.
+
+Session tokens are temporary credentials that are generated when you start a deployment. They're included in the response from the `/startUserDeployment` endpoint:
+
+\`\`\`json
+{
+  "message": "Deployment started successfully",
+  "url": "https://fantastic-fox-my-mern-app.alpha.nexlayer.ai",
+  "sessionToken": "<token>",
+  "applicationName": "My Mern App"
+}
+\`\`\`
+
+You can use this session token for subsequent operations related to the deployment, such as extending or claiming the deployment.
+
+## Next Steps
+
+Now that you understand how to authenticate with the Nexlayer API, you can:
+
+- Explore the [API Reference](/api-reference) for information about specific endpoints
+- Learn about [API best practices](/docs/api-reference/best-practices) to optimize your API usage
+- Set up [CI/CD pipelines](/docs/deployment/ci-cd) to automate your deployments
+\`\`\`

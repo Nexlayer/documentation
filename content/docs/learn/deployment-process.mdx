@@ -1,0 +1,94 @@
+---
+title: "Deployment Process"
+description: "Understand how Nexlayer deploys your applications"
+version: "v1"
+---
+
+# Deployment Process
+
+This guide explains how Nexlayer deploys your applications, from the moment you submit your YAML file to when your application is up and running.
+
+## Overview
+
+The Nexlayer deployment process consists of several steps:
+
+1. **YAML Validation**: Your configuration file is validated to ensure it's correctly formatted
+2. **Resource Allocation**: Nexlayer allocates the necessary resources for your application
+3. **Container Deployment**: Your containers are deployed to the Nexlayer infrastructure
+4. **Network Configuration**: Networking is set up to connect your pods and expose services
+5. **Health Checks**: Nexlayer verifies that your application is running correctly
+6. **URL Assignment**: Your application is assigned a URL for access
+
+## Step 1: YAML Validation
+
+When you submit your YAML file, Nexlayer first validates it to ensure:
+
+- The syntax is correct
+- All required fields are present
+- The configuration is logically consistent
+- Resource requests are within your account limits
+
+If any issues are found, Nexlayer will provide detailed error messages to help you fix them.
+
+## Step 2: Resource Allocation
+
+Once your YAML is validated, Nexlayer allocates the necessary resources for your application:
+
+- Compute resources (CPU, memory)
+- Storage resources (if persistent volumes are requested)
+- Network resources
+
+Nexlayer's AI optimizes resource allocation to ensure your application runs efficiently while minimizing costs.
+
+## Step 3: Container Deployment
+
+Next, Nexlayer pulls the container images specified in your YAML file and deploys them to the infrastructure:
+
+- Images are pulled from the specified registry
+- Containers are created with the specified configuration
+- Environment variables are injected
+- Volume mounts are set up (if specified)
+
+## Step 4: Network Configuration
+
+Nexlayer sets up networking for your application:
+
+- Internal networking between pods
+- External access for services that need to be publicly available
+- Load balancing for services with multiple replicas
+- DNS configuration for service discovery
+
+## Step 5: Health Checks
+
+Once your application is deployed, Nexlayer performs health checks to ensure it's running correctly:
+
+- HTTP health checks for web services
+- TCP health checks for other services
+- Custom health checks (if specified)
+
+If any health checks fail, Nexlayer will attempt to restart the affected pods and notify you of the issue.
+
+## Step 6: URL Assignment
+
+Finally, Nexlayer assigns a URL to your application:
+
+- Each application gets a unique subdomain on the nexlayer.ai domain
+- Custom domains can be configured (if specified)
+- SSL certificates are automatically provisioned for secure access
+
+## Monitoring Your Deployment
+
+You can monitor the status of your deployment through:
+
+- The Nexlayer dashboard
+- The Nexlayer CLI
+- Deployment logs
+
+## Next Steps
+
+Now that you understand how Nexlayer deploys your applications, you're ready to:
+
+- [Deploy your first application](/docs/getting-started/quick-start)
+- [Learn about advanced deployment options](/docs/deployment/advanced-options)
+- [Set up CI/CD pipelines for automated deployments](/docs/deployment/ci-cd)
+\`\`\`
