@@ -10,8 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Nexlayer - Deploy AI in seconds",
-  description: "One YAML file. Zero DevOps. Infinite possibilities.",
-    generator: 'v0.dev'
+  description: "One YAML file. Zero DevOps. Infinite possibilities."
 }
 
 export default function RootLayout({

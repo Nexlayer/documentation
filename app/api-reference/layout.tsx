@@ -24,27 +24,6 @@ export default function ApiReferenceLayout({
             <main className="flex-1">{children}</main>
           </div>
         </div>
-
-        <footer className="border-t border-zinc-800 py-8 mt-16">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="mb-4 md:mb-0">
-                <span className="text-zinc-400">© {new Date().getFullYear()} Nexlayer. All rights reserved.</span>
-              </div>
-              <div className="flex items-center space-x-6">
-                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
-                  GitHub
-                </a>
-                <a href="https://x.com/nexlayerai" className="text-zinc-400 hover:text-white transition-colors">
-                  X.com
-                </a>
-                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
-                  Discord
-                </a>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </AnimatedLayout>
   )

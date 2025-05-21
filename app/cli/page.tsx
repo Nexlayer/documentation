@@ -158,7 +158,7 @@ export default function CliPage() {
         {language === "yaml" ? (
           <>
             <YamlRenderer
-              code={`application:
+              yamlContent={`application:
   name: "my-ai-app"
   pods:
     - name: "web"
@@ -204,7 +204,7 @@ export default function CliPage() {
 
         <div className="space-y-1">
           {installationSteps.slice(0, installationStep + 1).map((step, index) => (
-            <div key={index} className="flex">
+            <div key={step.text + index} className="flex">
               <span style={{ color: step.color }}>{step.text}</span>
               {index === installationStep && step.text && <span className="animate-pulse ml-1">|</span>}
             </div>
@@ -284,7 +284,9 @@ export default function CliPage() {
                   <h3 className="text-lg font-medium text-white">Deploy Your Project</h3>
                 </div>
                 <div className="space-y-2">
-                  {deployCommands.map((cmd) => renderTerminal(cmd))}
+                  {deployCommands.map((cmd) => (
+                    <div key={cmd}>{renderTerminal(cmd)}</div>
+                  ))}
                   <p className="text-[#22B4C8] mt-2 text-center">That's it! Your app is live 🚀</p>
                 </div>
               </div>
@@ -296,12 +298,12 @@ export default function CliPage() {
         <div className="mb-16">
           <div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {features.map((feature, index) => (
+              {features.map((feature) => (
                 <motion.div
-                  key={index}
+                  key={feature.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  transition={{ duration: 0.4, delay: features.findIndex(f => f.title === feature.title) * 0.1 }}
                   className="bg-[#0a0a0a] rounded-xl p-6 border border-[#333] hover:border-[#22B4C8] transition-colors"
                 >
                   <div className="mb-4">{feature.icon}</div>
@@ -314,9 +316,9 @@ export default function CliPage() {
             <div className="mb-12">
               <h2 className="text-2xl font-light mb-6 text-white">Common Commands</h2>
               <div className="grid md:grid-cols-2 gap-4">
-                {commonCommands.map((cmd, index) => (
+                {commonCommands.map((cmd) => (
                   <div
-                    key={index}
+                    key={cmd.command}
                     className="bg-[#0a0a0a] rounded-lg p-4 border border-[#333] flex justify-between items-center"
                   >
                     <div className="font-mono text-[#22B4C8]">{cmd.command}</div>
@@ -337,17 +339,17 @@ export default function CliPage() {
         <div className="mb-16">
           <h2 className="text-2xl font-light mb-8 text-center gradient-text">From Zero to Production in 4 Steps</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {deploymentSteps.map((step, index) => (
+            {deploymentSteps.map((step) => (
               <motion.div
-                key={index}
+                key={step.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: deploymentSteps.findIndex(s => s.title === step.title) * 0.1 }}
                 className="bg-[#0a0a0a] rounded-xl p-6 border border-[#333] relative"
               >
                 <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[#22B4C8] text-black flex items-center justify-center font-medium">
-                  {index + 1}
+                  {deploymentSteps.findIndex(s => s.title === step.title) + 1}
                 </div>
                 <h3 className="text-lg font-medium mb-2 text-white mt-2">{step.title}</h3>
                 <p className="text-gray-400 mb-4">{step.description}</p>
