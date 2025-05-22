@@ -1,0 +1,9 @@
+application:
+  name: "nexlayer-documentation"
+  pods:
+    - name: static-site
+      path: "/"
+      image: ttl.sh/nexlayer-documentation:1h
+      servicePorts:
+        - 3000
+    
