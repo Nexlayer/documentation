@@ -1,8 +1,6 @@
 import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { useMDXComponent } from '@mdx-js/react'
-
 import { cn } from "@/lib/utils"
 import { Callout } from "@/components/callout"
 import { CodeBlock } from "@/components/code-block"
@@ -134,16 +132,4 @@ const components = {
   ),
 }
 
-interface MdxProps {
-  code: string
-}
-
-export function Mdx({ code }: MdxProps) {
-  const Component = useMDXComponent(code)
-
-  return (
-    <div className="mdx">
-      <Component components={components} />
-    </div>
-  )
-}
+export { components };

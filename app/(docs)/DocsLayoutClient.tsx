@@ -19,6 +19,21 @@ interface DocsLayoutProps {
 
 export default function DocsLayoutClient({ children, params }: DocsLayoutProps) {
   const slug = params?.slug?.join("/") || ""
+  
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DocsLayoutContent slug={slug} params={params}>
+        {children}
+      </DocsLayoutContent>
+    </Suspense>
+  )
+}
+
+function DocsLayoutContent({ 
+  children, 
+  params,
+  slug 
+}: DocsLayoutProps & { slug: string }) {
   const searchParams = useSearchParams()
 
   if (!slug) {
