@@ -57,7 +57,7 @@ jobs:
           SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
           
           # Update the image in nexlayer.yaml
-          sed -i "s|image:.*|image: ghcr.io/nexlayer/${{ env.IMAGE_NAME }}:sha-$SHORT_SHA|" nexlayer.yaml
+          sed -i "s|image:.*|image: ghcr.io/nexlayer/${{ env.IMAGE_NAME }}:$SHORT_SHA|" nexlayer.yaml
           
           # Display the updated file for verification
           cat nexlayer.yaml
