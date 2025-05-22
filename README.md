@@ -196,6 +196,46 @@ The site can be deployed to any platform that supports Node.js applications:
    yarn start
    ```
 
+### Docker Deployment
+
+You can build and run the documentation site using Docker:
+
+1. Build the Docker image:
+   ```bash
+   docker build -t nexlayer-documentation .
+   ```
+
+2. Run the Docker container:
+   ```bash
+   docker run -p 8080:80 nexlayer-documentation
+   ```
+
+3. Access the site at [http://localhost:8080](http://localhost:8080)
+
+### Automatic Deployment with GitHub Actions
+
+This repository is configured with GitHub Actions to automatically build and deploy the documentation site to Nexlayer whenever changes are pushed to the `main` branch.
+
+#### Setting up the GitHub Action
+
+1. **Configure GitHub repository secrets**:
+   - Go to your GitHub repository → Settings → Secrets and variables → Actions
+   - Add the following secret:
+     - `NEXLAYER_API_KEY`: Your Nexlayer API key for deployment
+
+2. **What the GitHub Action does**:
+   - Builds the Docker image from the Dockerfile
+   - Pushes the image to GitHub Container Registry (GHCR)
+   - Updates the `nexlayer.yaml` file with the new image tag
+   - Deploys the updated configuration to Nexlayer
+
+3. **Manual Trigger**:
+   You can also manually trigger the deployment:
+   - Go to your GitHub repository → Actions
+   - Select the "Build and Deploy to Nexlayer" workflow
+   - Click "Run workflow"
+   - Select the branch to deploy and click "Run workflow"
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
