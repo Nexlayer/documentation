@@ -5,5 +5,5 @@ application:
       path: "/"
       image: ttl.sh/nexlayer-documentation:1h
       servicePorts:
-        - 3000
+        - 80
     
