@@ -72,53 +72,97 @@ export default function LearnPage() {
       {/* Features Section */}
       <section className="py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl font-serif font-medium tracking-tight text-white mb-8">Why Nexlayer Exists</h2>
-            <div className="space-y-6 text-lg leading-relaxed text-gray-300">
-              <p>
-                With AI, building an app is easy now. AI writes code. Designs UIs. Connects APIs. In minutes, you have
-                something that looks and feels real.
-              </p>
+        <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="mb-16"
+    >
+      <h2 className="text-4xl sm:text-5xl font-serif font-semibold tracking-tight text-white mb-10">
+        Why Nexlayer Exists
+      </h2>
 
-              <p>But the second you try to ship it — everything breaks.</p>
+      <div className="space-y-10 text-xl leading-loose text-gray-300">
+        <p>
+          <span className="block text-white font-medium">With AI, building an app is easy now.</span>
+          AI writes code.  
+          <br />
+          Designs UIs.  
+          <br />
+          Connects APIs.  
+          <br />
+          In minutes, you have something that looks and feels <em>real</em>.
+        </p>
 
-              <p>Getting it live — truly live, production-ready, and built to scale — is still broken.</p>
+        <p className="text-white font-semibold text-2xl">
+          But the second you try to ship it — everything breaks.
+        </p>
 
-              <p>
-                Most tools were designed for development, not for shipping high-quality product. They assume you're
-                testing and debugging, not delivering. They generate beautiful code — then leave you stranded wiring up
-                the backend, the database, the AI model… alone.
-              </p>
+        <p>
+          Getting it live — <strong>truly live</strong>, <br />
+          <strong>production-ready</strong>, <br />
+          <strong>scalable</strong> — is still broken.
+        </p>
 
-              <p>
-                That's where momentum dies. Where promising ideas stall. Where creators burn out before launching or
-                securing funding.
-              </p>
+        <p>
+          Most tools were designed for <em>development</em>, not delivery.  
+          <br />
+          They assume you're testing, not shipping.  
+          <br />
+          They generate beautiful code —  
+          <br />
+          then leave you stranded.  
+          <br />
+          Wiring up the backend.  
+          <br />
+          The database.  
+          <br />
+          The AI model…  
+          <span className="block text-white font-medium mt-2">Alone.</span>
+        </p>
 
-              <p className="font-semibold text-white">Nexlayer exists to fix that.</p>
+        <p className="italic text-gray-400">
+          That’s where momentum dies.  
+          <br />
+          Where ideas stall.  
+          <br />
+          Where creators burn out before launch.
+        </p>
 
-              <p>
-                It's a new kind of cloud. An intelligent layer built for the AI era. A machine-readable fabric — the
-                cloud that AI agents can talk to.
-              </p>
+        <p className="text-white text-2xl font-semibold tracking-wide">
+          Nexlayer exists to fix that.
+        </p>
 
-              <p>
-                No boilerplate. No dead ends. No busywork. Just a clean, intelligent path from prototype to product.
-              </p>
+        <p>
+          Not just another PaaS.  
+          <br />
+          An execution layer where agents ship & scale any app.
+          <br />
+          Machine-readable. Agent-native. Engineered for scale.
+</p>
 
-              <p>You define what your app is. We handle the rest — infrastructure, scale, services — instantly.</p>
+        <p className="text-white">
+          No boilerplate.  
+          <br />
+          No dead ends.  
+          <br />
+          No busywork.  
+          <br />
+          <span className="font-medium">Just a clear path from prototype to product.</span>
+        </p>
 
-              <p className="text-xl font-medium text-white">
-                Because execution is everything.
-                <br />
-                And the future belongs to those who ship.
-              </p>
+        <p>
+          You define what your app <em>is</em>.  
+          <br />
+          We handle the rest — infrastructure, scale, services — <span className="font-semibold">instantly.</span>
+        </p>
+
+        <p className="text-2xl text-white font-semibold leading-snug">
+          Because execution is everything.
+          <br />
+          Ideas are cheap. Execution wins. The future belongs to those who ship fast.
+</p>
             </div>
           </motion.div>
 

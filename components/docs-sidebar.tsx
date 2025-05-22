@@ -2,24 +2,13 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { allDocs } from "contentlayer/generated"
 import { cn } from "@/lib/utils"
 
 export function DocsSidebar() {
   const pathname = usePathname()
 
   // Group docs by their first path segment
-  const groups = allDocs.reduce(
-    (acc, doc) => {
-      const [group = "ungrouped"] = doc.slugAsParams.split("/")
-      if (!acc[group]) {
-        acc[group] = []
-      }
-      acc[group].push(doc)
-      return acc
-    },
-    {} as Record<string, typeof allDocs>,
-  )
+  const groups = {}
 
   // Debug: Log available groups
   console.log("Available document groups:", Object.keys(groups))

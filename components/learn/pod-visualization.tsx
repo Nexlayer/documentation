@@ -3,7 +3,12 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 
-export default function PodVisualization() {
+interface PodVisualizationProps {
+  onPodSelect?: (pod: string) => void;
+  selectedPod?: string | null;
+}
+
+export default function PodVisualization({ onPodSelect, selectedPod }: PodVisualizationProps) {
   const [isVisible, setIsVisible] = useState(false)
 
   const pods = [
@@ -49,8 +54,9 @@ export default function PodVisualization() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="flex items-center space-x-4 bg-black bg-opacity-60 backdrop-blur-sm p-4 rounded-lg border border-[#333] shadow-lg"
-              style={{ width: "300px" }}
+              className={`flex items-center space-x-4 bg-black bg-opacity-60 backdrop-blur-sm p-4 rounded-lg border border-[#333] shadow-lg ${selectedPod === pod.id ? 'ring-2 ring-primary' : ''}`}
+              style={{ width: "300px", cursor: onPodSelect ? 'pointer' : undefined }}
+              onClick={onPodSelect ? () => onPodSelect(pod.id) : undefined}
             >
               <div
                 className="w-12 h-12 rounded-full flex items-center justify-center text-2xl"

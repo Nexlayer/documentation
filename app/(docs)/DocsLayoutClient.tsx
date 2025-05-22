@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { allDocs } from "contentlayer/generated"
 import { useSearchParams } from "next/navigation"
 import { Suspense } from "react"
 
@@ -20,10 +19,9 @@ interface DocsLayoutProps {
 
 export default function DocsLayoutClient({ children, params }: DocsLayoutProps) {
   const slug = params?.slug?.join("/") || ""
-  const doc = allDocs.find((doc) => doc.slugAsParams === slug)
   const searchParams = useSearchParams()
 
-  if (!doc && slug) {
+  if (!slug) {
     notFound()
   }
 
@@ -57,7 +55,7 @@ export default function DocsLayoutClient({ children, params }: DocsLayoutProps) 
                     <>
                       <span>/</span>
                       <span className="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">
-                        {doc?.title}
+                        {slug}
                       </span>
                     </>
                   )}

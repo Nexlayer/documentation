@@ -1,16 +1,64 @@
 # Nexlayer Documentation Site
 
-This is the documentation site for Nexlayer, built with Next.js, Contentlayer, and MDX.
+This is the documentation site for Nexlayer, built with Next.js and MDX.
 
 ## Features
 
 - **Next.js with TypeScript**: Modern React framework with type safety
-- **Contentlayer**: Type-safe content management
-- **MDX**: Write JSX in markdown documents
+- **MDX**: Write JSX in markdown documents, powered by @next/mdx and @mdx-js/react
 - **Tailwind CSS**: Utility-first CSS framework with easy customization
 - **Dark Mode**: Built-in dark mode support
 - **Search**: Full-text search for documentation
 - **Responsive Design**: Works on all devices
+
+## MDX Implementation Details
+
+This project uses **@next/mdx** and **@mdx-js/react** for MDX processing. Contentlayer is no longer used.
+
+### Usage
+
+- Import `.mdx` files directly as React components:
+  ```tsx
+  import MyDoc from '@/content/docs/getting-started/introduction.mdx';
+  export default function Page() {
+    return <MyDoc />;
+  }
+  ```
+- Export and use metadata from MDX files:
+  ```mdx
+  export const metadata = {
+    title: 'Introduction',
+    description: 'This is the introduction page.',
+  };
+  # Introduction
+  Welcome to the docs!
+  ```
+  ```tsx
+  import MyDoc, { metadata } from '@/content/docs/getting-started/introduction.mdx';
+  export default function Page() {
+    return (
+      <>
+        <h1>{metadata.title}</h1>
+        <MyDoc />
+      </>
+    );
+  }
+  ```
+- Use custom components with `MDXProvider` from `@mdx-js/react`:
+  ```tsx
+  import { MDXProvider } from '@mdx-js/react';
+  import MyDoc from '@/content/docs/getting-started/introduction.mdx';
+  import { components } from '@/components/mdx-components';
+  export default function Page() {
+    return (
+      <MDXProvider components={components}>
+        <MyDoc />
+      </MDXProvider>
+    );
+  }
+  ```
+
+For more details, see the [Next.js MDX Guide](https://nextjs.org/docs/app/guides/mdx).
 
 ## Getting Started
 
@@ -113,38 +161,6 @@ The site can be deployed to any platform that supports Node.js applications:
    # or
    yarn start
    \`\`\`
-
-## MDX Implementation Details
-
-This project uses **ContentLayer** for MDX processing, not directly using either @next/mdx or next-mdx-remote.
-
-### Implementation Details
-
-1. **ContentLayer as the MDX Solution**:
-   - Uses `contentlayer` and `next-contentlayer` packages
-   - ContentLayer is a content SDK that works with Next.js and provides a more structured way to work with MDX
-
-2. **Configuration**:
-   - `contentlayer.config.ts` defines document types (Doc, Guide, Author)
-   - Specifies MDX processing with plugins like rehype-pretty-code, rehype-slug, etc.
-
-3. **MDX Rendering**:
-   - `components/mdx-components.tsx` defines custom components for MDX content
-   - Uses the `useMDXComponent` hook from "next-contentlayer/hooks" to render MDX
-
-4. **Content Structure**:
-   - Content is organized in the `content/` directory with subdirectories for docs, guides, and authors
-   - Each MDX file includes frontmatter for metadata
-
-### Benefits of This Approach
-
-ContentLayer provides several advantages over direct use of @next/mdx or next-mdx-remote:
-
-1. **Type Safety**: ContentLayer generates TypeScript types for your content
-2. **Content Validation**: It validates your content structure against defined schemas
-3. **Computed Fields**: You can define computed fields like slugs
-4. **Structured Content**: It provides a more structured way to work with content
-5. **Better Developer Experience**: Includes features like hot reloading and better error messages
 
 ## License
 

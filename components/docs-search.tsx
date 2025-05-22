@@ -3,7 +3,6 @@
 import type React from "react"
 import { useState, useMemo } from "react"
 import { useRouter } from "next/navigation"
-import { allDocs } from "contentlayer/generated"
 import { Search } from "lucide-react"
 
 // Simple client-side search implementation

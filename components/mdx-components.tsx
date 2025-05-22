@@ -1,7 +1,7 @@
 import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { useMDXComponent } from "next-contentlayer/hooks"
+import { useMDXComponent } from '@mdx-js/react'
 
 import { cn } from "@/lib/utils"
 import { Callout } from "@/components/callout"
