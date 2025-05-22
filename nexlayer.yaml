@@ -3,7 +3,7 @@ application:
   pods:
     - name: static-site
       path: "/"
-      image: ttl.sh/nexlayer-documentation:1h
+      image: ghcr.io/Nexlayer/documentation:latest
       servicePorts:
         - 80
     
