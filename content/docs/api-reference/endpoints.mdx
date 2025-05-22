@@ -12,9 +12,9 @@ This guide provides detailed information about the available endpoints in the Ne
 
 ### Start User Deployment
 
-\`\`\`
+```
 POST /startUserDeployment
-\`\`\`
+```
 
 Starts a new deployment based on a YAML configuration file.
 
@@ -23,165 +23,178 @@ Starts a new deployment based on a YAML configuration file.
 - Body: YAML configuration file
 
 **Response:**
-\`\`\`json
+```
+json
 {
   "message": "Deployment started successfully",
   "url": "https://fantastic-fox-my-mern-app.alpha.nexlayer.ai",
-  "sessionToken": "<token>",
+  "sessionToken": "token",
   "applicationName": "My Mern App",
   "status": {
-    "environment": "<Notes about the environment>"
+    "environment": "Environment details here"
   },
   "extend": {
-    "message": "<message-regarding-extending-deployment>",
-    "extendURL": "<curl-command-to-extend-deployment>"
+    "message": "Deployment can be extended.",
+    "extendURL": "curl -X POST ..."
   },
   "claim": {
-    "message": "<message-regarding-claiming-deployment>",
-    "claimURL": "<curl-command-to-claim-deployment>"
+    "message": "Claim your deployment using the provided URL.",
+    "claimURL": "https://app.nexlayer.io/claim/claim-token",
+    "claimToken": "claim-token"
   },
-  "info": "<additional-information>"
+  "info": "Additional information here."
 }
-\`\`\`
+```
 
 ### Extend Deployment
 
-\`\`\`
+```
 POST /extendDeployment
-\`\`\`
+```
 
 Extends the lifetime of an existing deployment.
 
 **Request:**
 - Content-Type: `application/json`
 - Body:
-\`\`\`json
+```
+json
 {
   "applicationName": "My MERN App",
-  "sessionToken": "<token-recieved-from-starting-a-deployment>"
+  "sessionToken": "token"
 }
-\`\`\`
+```
 
 **Response:**
-\`\`\`json
+```
+json
 {
   "message": "Application My MERN App has been extended. Environment will expire in 120 minutes. 2 extension(s) remaining."
 }
-\`\`\`
+```
 
 ### Claim Deployment
 
-\`\`\`
+```
 POST /claimDeployment
-\`\`\`
+```
 
 Claims a deployment to make it permanent.
 
 **Request:**
 - Content-Type: `application/json`
 - Body:
-\`\`\`json
+```
+json
 {
   "applicationName": "My MERN App",
-  "sessionToken": "<token-recieved-from-starting-a-deployment>"
+  "sessionToken": "token"
 }
-\`\`\`
+```
 
 **Response:**
-\`\`\`json
+```
+json
 {
-  "message": "You're almost there! Visit https://app.nexlayer.io/claim/<claim-token> to finalize your deployment.",
-  "claimURL": "https://app.nexlayer.io/claim/<claim-token>",
-  "claimToken": "<claim-token>"
+  "message": "You're almost there! Visit https://app.nexlayer.io/claim/claim-token to finalize your deployment.",
+  "claimURL": "https://app.nexlayer.io/claim/claim-token",
+  "claimToken": "claim-token"
 }
-\`\`\`
+```
 
 ## Reservation Endpoints
 
 ### Add Deployment Reservation
 
-\`\`\`
+```
 POST /addDeploymentReservation
-\`\`\`
+```
 
 Adds a reservation for a deployment.
 
 **Request:**
 - Content-Type: `application/json`
 - Body:
-\`\`\`json
+```
+json
 {
   "applicationName": "My MERN App",
-  "sessionToken": "<token-recieved-from-starting-a-deployment>"
+  "sessionToken": "token"
 }
-\`\`\`
+```
 
 **Response:**
-\`\`\`json
+```
+json
 {
   "message": "Application My MERN App reservation has been added."
 }
-\`\`\`
+```
 
 ### Remove Deployment Reservation
 
-\`\`\`
+```
 POST /removeDeploymentReservation
-\`\`\`
+```
 
 Removes a reservation for a deployment.
 
 **Request:**
 - Content-Type: `application/json`
 - Body:
-\`\`\`json
+```
+json
 {
   "applicationName": "My MERN App",
-  "sessionToken": "<token-recieved-from-starting-a-deployment>"
+  "sessionToken": "token"
 }
-\`\`\`
+```
 
 **Response:**
-\`\`\`json
+```
+json
 {
   "message": "Application My MERN App reservation has been removed. Application site will be removed within the next 10 minutes."
 }
-\`\`\`
+```
 
 ### Remove All Reservations
 
-\`\`\`
+```
 POST /removeReservations
-\`\`\`
+```
 
 Removes all reservations for a session.
 
 **Request:**
 - Content-Type: `application/json`
 - Body:
-\`\`\`json
+```
+json
 {
-  "sessionToken": "<token-recieved-from-starting-a-deployment>"
+  "sessionToken": "token"
 }
-\`\`\`
+```
 
 **Response:**
-\`\`\`json
+```
+json
 {
   "message": "All reservations have been removed. Application sites will be removed within the next 10 minutes."
 }
-\`\`\`
+```
 
 ### Get Reservations
 
-\`\`\`
-GET /getReservations?sessionToken=<token>
-\`\`\`
+```
+GET /getReservations?sessionToken=token
+```
 
 Gets all reservations for a session.
 
 **Response:**
-\`\`\`json
+```
+json
 {
   "reservedDeployments": [
     {
@@ -190,15 +203,15 @@ Gets all reservations for a session.
     }
   ]
 }
-\`\`\`
+```
 
 ## Validation Endpoints
 
 ### Get Schema
 
-\`\`\`
+```
 GET /schema
-\`\`\`
+```
 
 Gets the YAML schema for Nexlayer configurations.
 
@@ -207,9 +220,9 @@ JSON schema for Nexlayer YAML files.
 
 ### Validate YAML
 
-\`\`\`
+```
 POST /validate
-\`\`\`
+```
 
 Validates a Nexlayer YAML file.
 
@@ -218,41 +231,30 @@ Validates a Nexlayer YAML file.
 - Body: JSON representation of the YAML file
 
 **Response:**
-\`\`\`json
+```
+json
 {
   "message": "Nexlayer YAML file is valid."
 }
-\`\`\`
+```
 
 ## Feedback Endpoint
 
-\`\`\`
+```
 POST /feedback
-\`\`\`
+```
 
 Sends feedback to Nexlayer.
 
 **Request:**
 - Content-Type: `application/json`
 - Body:
-\`\`\`json
+```
+json
 {
   "text": "Your feedback here"
 }
-\`\`\`
+```
 
 **Response:**
-\`\`\`json
-{
-  "message": "Feedback received. Thank you!"
-}
-\`\`\`
-
-## Next Steps
-
-Now that you understand the available API endpoints, you can:
-
-- Set up [API authentication](/docs/api-reference/authentication) for your applications
-- Learn about [API best practices](/docs/api-reference/best-practices) to optimize your API usage
-- Explore [example API usage](/docs/api-reference/examples) for common scenarios
-\`\`\`
+```

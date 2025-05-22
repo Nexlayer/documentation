@@ -4,6 +4,7 @@ description: "Learn how to authenticate with the Nexlayer API"
 version: "v1"
 ---
 
+
 # API Authentication
 
 This guide explains how to authenticate with the Nexlayer API to access protected endpoints.
@@ -51,7 +52,7 @@ curl -X GET "https://app.nexlayer.io/getReservations" \
 
 ### Example: JavaScript
 
-\`\`\`javascript
+```js
 fetch('https://app.nexlayer.io/getReservations', {
   method: 'GET',
   headers: {
@@ -61,11 +62,11 @@ fetch('https://app.nexlayer.io/getReservations', {
 .then(response => response.json())
 .then(data => console.log(data))
 .catch(error => console.error('Error:', error));
-\`\`\`
+```
 
 ### Example: Python
 
-\`\`\`python
+```python
 import requests
 
 headers = {
@@ -75,7 +76,7 @@ headers = {
 response = requests.get('https://app.nexlayer.io/getReservations', headers=headers)
 data = response.json()
 print(data)
-\`\`\`
+```
 
 ## Session Tokens
 
@@ -83,22 +84,11 @@ For some operations, particularly those related to deployments, you'll need to u
 
 Session tokens are temporary credentials that are generated when you start a deployment. They're included in the response from the `/startUserDeployment` endpoint:
 
-\`\`\`json
+```json
 {
   "message": "Deployment started successfully",
   "url": "https://fantastic-fox-my-mern-app.alpha.nexlayer.ai",
-  "sessionToken": "<token>",
+  "sessionToken": "token",
   "applicationName": "My Mern App"
 }
-\`\`\`
-
-You can use this session token for subsequent operations related to the deployment, such as extending or claiming the deployment.
-
-## Next Steps
-
-Now that you understand how to authenticate with the Nexlayer API, you can:
-
-- Explore the [API Reference](/api-reference) for information about specific endpoints
-- Learn about [API best practices](/docs/api-reference/best-practices) to optimize your API usage
-- Set up [CI/CD pipelines](/docs/deployment/ci-cd) to automate your deployments
-\`\`\`
+```

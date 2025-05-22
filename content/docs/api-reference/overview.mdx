@@ -12,17 +12,17 @@ The Nexlayer API allows you to programmatically deploy and manage your applicati
 
 All API requests should be made to:
 
-\`\`\`
+```
 https://app.nexlayer.io
-\`\`\`
+```
 
 ## Authentication
 
 Most API endpoints require authentication. You can authenticate by including your API key in the request headers:
 
-\`\`\`
+```
 Authorization: Bearer YOUR_API_KEY
-\`\`\`
+```
 
 To obtain an API key, visit the [API Keys](https://app.nexlayer.io/settings/api-keys) page in your Nexlayer dashboard.
 
@@ -37,23 +37,23 @@ The Nexlayer API accepts requests in different formats depending on the endpoint
 
 All API responses are returned in JSON format. A typical response looks like this:
 
-\`\`\`json
+```json
 {
   "success": true,
   "data": {
-    // Response data here
+    "example": "Response data here"
   }
 }
-\`\`\`
+```
 
 If an error occurs, the response will include an error message:
 
-\`\`\`json
+```json
 {
   "success": false,
   "error": "Error message here"
 }
-\`\`\`
+```
 
 ## Rate Limiting
 
@@ -83,12 +83,12 @@ For detailed information about each endpoint, including request and response for
 
 Here's an example of how to deploy an application using the API:
 
-\`\`\`bash
+```bash
 curl -X POST "https://app.nexlayer.io/startUserDeployment" \
   -H "Content-Type: text/x-yaml" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   --data-binary @nexlayer.yaml
-\`\`\`
+```
 
 ## Error Handling
 
@@ -103,4 +103,3 @@ Now that you have an overview of the Nexlayer API, you can:
 - Explore the [detailed API reference](/api-reference) for information about specific endpoints
 - Set up [API authentication](/docs/api-reference/authentication) for your applications
 - Learn about [API best practices](/docs/api-reference/best-practices) to optimize your API usage
-\`\`\`

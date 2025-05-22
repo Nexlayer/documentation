@@ -3,6 +3,7 @@ title: Quick Start Guide
 description: Deploy your first application to Nexlayer in minutes.
 ---
 
+
 # Quick Start Guide
 
 This guide will walk you through deploying your first application to Nexlayer. You'll have a live application in just a few minutes!
@@ -19,7 +20,7 @@ Before you begin, make sure you have:
 
 Create a file named `nexlayer.yaml` in the root of your project with the following content:
 
-\`\`\`yaml
+```yaml
 application:
   name: "my-first-app"
   pods:
@@ -27,7 +28,7 @@ application:
       image: "nginx:latest"  # Replace with your own image
       servicePorts:
         - 80
-\`\`\`
+```
 
 This simple configuration will deploy a single container running Nginx.
 
@@ -37,13 +38,13 @@ You have several options for deploying your application:
 
 ### Option 1: Use the Nexlayer CLI
 
-\`\`\`bash
+```bash
 # Install the Nexlayer CLI
 curl -sSL https://get.nexlayer.io | bash
 
 # Deploy your application
 nexlayer deploy
-\`\`\`
+```
 
 ### Option 2: Use the Web Interface
 
@@ -54,11 +55,11 @@ nexlayer deploy
 
 ### Option 3: Use the API
 
-\`\`\`bash
+```bash
 curl -X POST "https://app.nexlayer.io/startUserDeployment" \
   -H "Content-Type: text/x-yaml" \
   --data-binary @nexlayer.yaml
-\`\`\`
+```
 
 ## Step 3: Access Your Application
 

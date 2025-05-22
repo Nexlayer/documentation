@@ -4,6 +4,7 @@ description: "Learn how to configure your applications using Nexlayer YAML"
 version: "v1"
 ---
 
+
 # YAML Configuration
 
 Nexlayer uses YAML files to define your application's structure and behavior. This guide will help you understand how to write effective YAML configurations for your applications.
@@ -12,17 +13,19 @@ Nexlayer uses YAML files to define your application's structure and behavior. Th
 
 Every Nexlayer YAML file starts with an `application` block that defines your application:
 
-\`\`\`yaml
+```yaml
 application:
   name: "my-application"
   # Additional configuration goes here
-\`\`\`
+```
 
 ## Defining Pods
 
-Pods are the core of your application. Each pod represents a container that runs your code:
+Pods are the core of your application. Each pod represents a container that runs your code.
 
-\`\`\`yaml
+Below is a table describing the properties you can set for each pod:
+
+```yaml
 application:
   name: "my-application"
   pods:
@@ -30,23 +33,13 @@ application:
       image: "nginx:latest"
       servicePorts:
         - 80
-\`\`\`
-
-### Pod Properties
-
-| Property | Description | Required |
-|----------|-------------|----------|
-| name | The name of the pod | Yes |
-| image | The Docker image to use | Yes |
-| servicePorts | Ports to expose | No |
-| env | Environment variables | No |
-| resources | CPU and memory limits | No |
+```
 
 ## Environment Variables
 
 You can define environment variables for your pods:
 
-\`\`\`yaml
+```yaml
 application:
   name: "my-application"
   pods:
@@ -57,13 +50,13 @@ application:
           value: "postgres://user:password@host:port/db"
         - name: "API_KEY"
           value: "my-api-key"
-\`\`\`
+```
 
 ## Resource Allocation
 
 You can specify CPU and memory resources for your pods:
 
-\`\`\`yaml
+```yaml
 application:
   name: "my-application"
   pods:
@@ -72,7 +65,7 @@ application:
       resources:
         cpu: 1
         memory: "512Mi"
-\`\`\`
+```
 
 ## Advanced Configuration
 
@@ -82,7 +75,7 @@ For more advanced configuration options, check out our [Advanced Deployment Opti
 
 Here's an example of a complete application with multiple pods:
 
-\`\`\`yaml
+```yaml
 application:
   name: "my-full-app"
   pods:
@@ -122,9 +115,8 @@ application:
       resources:
         cpu: 1
         memory: "1Gi"
-\`\`\`
+```
 
 ## Next Steps
 
 Now that you understand how to configure your applications with YAML, you're ready to deploy! Check out our [CLI documentation](/docs/cli/overview) to learn how to use our command-line tools to deploy your applications.
-\`\`\`
