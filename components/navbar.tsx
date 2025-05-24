@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
+import Logo from "@/public/logoBuild.png"
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -25,9 +26,9 @@ export default function Navbar() {
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
-                <div className="relative h-8 w-8 mr-2 bg-transparent">
+                <div className="relative size-7 mr-2 bg-transparent">
                   <Image
-                    src="/nexlayer-logo.svg"
+                    src={Logo}
                     alt="Nexlayer Logo"
                     fill
                     className="object-contain"

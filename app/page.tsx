@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10">
           <div className="flex justify-between items-start mb-8">
             <p className="text-[#22B4C8] text-lg font-medium">Getting Started</p>
