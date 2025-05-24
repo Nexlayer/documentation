@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
-import Logo from "@/public/logoBuild.png"
+import Logo from "@/components/assets/images/logoBuild.png"
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -30,9 +30,9 @@ export default function Navbar() {
                   <Image
                     src={Logo}
                     alt="Nexlayer Logo"
-                    fill
+                    width={30}
+                    height={30}
                     className="object-contain"
-                    priority
                     style={{ backgroundColor: "transparent" }}
                   />
                 </div>
