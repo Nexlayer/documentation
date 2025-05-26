@@ -71,7 +71,6 @@
     "rehype-pretty-code": "latest",
     "rehype-slug": "latest",
     "remark-gfm": "^4.0.1",
-    "sharp": "^0.34.2",
     "shiki": "latest",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
