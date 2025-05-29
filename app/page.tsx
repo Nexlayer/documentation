@@ -1,23 +1,26 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Terminal, Cloud, Code, Zap, Copy, MessageSquare } from "lucide-react"
-import FeatureCard from "../components/feature-card"
-import { motion } from "framer-motion"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import Image from "next/image";
+import { Terminal, Cloud, Code, Zap, Copy, MessageSquare } from "lucide-react";
+import FeatureCard from "../components/feature-card";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import GithubIcon from "@/components/assets/svgs/github.svg";
 
 export default function Home() {
-  const [copiedCommand, setCopiedCommand] = useState(false)
+  const [copiedCommand, setCopiedCommand] = useState(false);
 
   const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
-    setCopiedCommand(text)
-    setTimeout(() => setCopiedCommand(null), 2000)
-  }
+    navigator.clipboard.writeText(text);
+    setCopiedCommand(text);
+    setTimeout(() => setCopiedCommand(null), 2000);
+  };
 
   const handleCopy = () => {
-    copyToClipboard("page content")
-  }
+    copyToClipboard("page content");
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -25,7 +28,9 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10">
           <div className="flex justify-between items-start mb-8">
-            <p className="text-[#22B4C8] text-lg font-medium">Getting Started</p>
+            <p className="text-[#22B4C8] text-lg font-medium">
+              Getting Started
+            </p>
             <div className="relative">
               <button
                 onClick={handleCopy}
@@ -38,17 +43,22 @@ export default function Home() {
           </div>
 
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Quickstart</h1>
-            <p className="text-xl text-gray-400 mb-8">Deploy your AI-powered product in minutes</p>
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              Quickstart
+            </h1>
+            <p className="text-xl text-gray-400 mb-8">
+              Deploy your AI-powered product in minutes
+            </p>
 
             <div className="space-y-8 text-gray-300">
               <p className="text-lg">
-                This quickstart guide will walk you through the process of setting up and deploying your application in
-                just a few minutes.
+                This quickstart guide will walk you through the process of
+                setting up and deploying your application in just a few minutes.
               </p>
 
               <p className="text-lg">
-                By the end of this guide, you'll have your product live to share with the world.
+                By the end of this guide, you'll have your product live to share
+                with the world.
               </p>
 
               <div className="bg-[#111] border border-[#333] rounded-lg p-6 my-8">
@@ -57,7 +67,9 @@ export default function Home() {
                     <span className="text-white text-sm">ℹ️</span>
                   </div>
                   <div>
-                    <p className="font-medium text-white mb-1">Prerequisites:</p>
+                    <p className="font-medium text-white mb-1">
+                      Prerequisites:
+                    </p>
                     <p>
                       Before you begin:- ✅ Make sure{" "}
                       <a
@@ -68,7 +80,8 @@ export default function Home() {
                       >
                         Docker Desktop
                       </a>{" "}
-                      is <strong>installed</strong> and <strong>running</strong>.
+                      is <strong>installed</strong> and <strong>running</strong>
+                      .
                     </p>
                   </div>
                 </div>
@@ -82,10 +95,12 @@ export default function Home() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-light mb-4 gradient-text">From Hello World to Production in 4 Steps</h2>
+            <h2 className="text-3xl font-light mb-4 gradient-text">
+              From Hello World to Production in 4 Steps
+            </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Our AI-native cloud platform handles everything automatically, so you can focus on shipping delightful
-              products users love.
+              Our AI-native cloud platform handles everything automatically, so
+              you can focus on shipping delightful products users love.
             </p>
           </div>
 
@@ -108,9 +123,12 @@ export default function Home() {
                 >
                   Step 1 — Deploy Your Frontend
                 </motion.h3>
-                <p className="text-sm text-[#22B4C8] mb-3">Tech: Next.js 15 + Tailwind + App Router</p>
+                <p className="text-sm text-[#22B4C8] mb-3">
+                  Tech: Next.js 15 + Tailwind + App Router
+                </p>
                 <p className="text-gray-300 mb-4">
-                  Start with a modern frontend. Deploy your static or server-rendered Next.js site in seconds.
+                  Start with a modern frontend. Deploy your static or
+                  server-rendered Next.js site in seconds.
                 </p>
               </div>
               <motion.div
@@ -118,11 +136,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 204, 0.1)" }}
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 25px -5px rgba(0, 255, 204, 0.1)",
+                }}
                 className="bg-[#0a0a0a] rounded-xl p-6 border border-[#333]"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <p className="text-sm font-medium text-gray-300">Simple web pod YAML snippet</p>
+                  <p className="text-sm font-medium text-gray-300">
+                    Simple web pod YAML snippet
+                  </p>
                   <div className="flex space-x-2">
                     <button className="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded hover:bg-[#333] transition-colors">
                       Copy
@@ -150,7 +173,9 @@ export default function Home() {
                   </div>
                   <div className="flex pl-8">
                     <span className="text-[#9cdcfe] mr-2">image:</span>
-                    <span className="text-[#ce9178]">"user-name/prisma:latest"</span>
+                    <span className="text-[#ce9178]">
+                      "user-name/prisma:latest"
+                    </span>
                   </div>
                   <div className="flex pl-8">
                     <span className="text-[#9cdcfe] mr-2">servicePorts:</span>
@@ -164,7 +189,9 @@ export default function Home() {
                   </div>
                   <div className="flex pl-12">
                     <span className="text-[#9cdcfe] mr-2">DATABASE_URL:</span>
-                    <span className="text-[#22B4C8]">"postgresql://user:pass@db.pod:5432/mydb"</span>
+                    <span className="text-[#22B4C8]">
+                      "postgresql://user:pass@db.pod:5432/mydb"
+                    </span>
                   </div>
                 </div>
               </motion.div>
@@ -188,9 +215,12 @@ export default function Home() {
                 >
                   Step 2 — Add Auth + Database
                 </motion.h3>
-                <p className="text-sm text-[#22B4C8] mb-3">Tech: Supabase (Auth + PostgreSQL)</p>
+                <p className="text-sm text-[#22B4C8] mb-3">
+                  Tech: Supabase (Auth + PostgreSQL)
+                </p>
                 <p className="text-gray-300 mb-4">
-                  Add real users and persistent data using Supabase. Easily store accounts, profiles, and content.
+                  Add real users and persistent data using Supabase. Easily
+                  store accounts, profiles, and content.
                 </p>
               </div>
               <motion.div
@@ -198,11 +228,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 204, 0.1)" }}
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 25px -5px rgba(0, 255, 204, 0.1)",
+                }}
                 className="bg-[#0a0a0a] rounded-xl p-6 border border-[#333]"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <p className="text-sm font-medium text-gray-300">Add second pod for db, plus vars and secrets</p>
+                  <p className="text-sm font-medium text-gray-300">
+                    Add second pod for db, plus vars and secrets
+                  </p>
                   <div className="flex space-x-2">
                     <button className="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded hover:bg-[#333] transition-colors">
                       Copy
@@ -240,7 +275,9 @@ export default function Home() {
                     <span className="text-[#22B4C8]">user</span>
                   </div>
                   <div className="flex pl-8">
-                    <span className="text-[#9cdcfe] mr-2">POSTGRES_PASSWORD:</span>
+                    <span className="text-[#9cdcfe] mr-2">
+                      POSTGRES_PASSWORD:
+                    </span>
                     <span className="text-[#22B4C8]">pass</span>
                   </div>
                   <div className="flex pl-8">
@@ -271,7 +308,8 @@ export default function Home() {
                 </motion.h3>
                 <p className="text-sm text-[#22B4C8] mb-3">Tech: Prisma ORM</p>
                 <p className="text-gray-300 mb-4">
-                  Auto-generate your API with Prisma and define your database schema using elegant TypeScript models.
+                  Auto-generate your API with Prisma and define your database
+                  schema using elegant TypeScript models.
                 </p>
               </div>
               <motion.div
@@ -279,11 +317,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 204, 0.1)" }}
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 25px -5px rgba(0, 255, 204, 0.1)",
+                }}
                 className="bg-[#0a0a0a] rounded-xl p-6 border border-[#333]"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <p className="text-sm font-medium text-gray-300">New backend pod + volume + env for database</p>
+                  <p className="text-sm font-medium text-gray-300">
+                    New backend pod + volume + env for database
+                  </p>
                   <div className="flex space-x-2">
                     <button className="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded hover:bg-[#333] transition-colors">
                       Copy
@@ -304,7 +347,9 @@ export default function Home() {
                   </div>
                   <div className="flex pl-4">
                     <span className="text-[#9cdcfe] mr-2">image:</span>
-                    <span className="text-[#ce9178]">"ttl.sh/my-backend:1h"</span>
+                    <span className="text-[#ce9178]">
+                      "ttl.sh/my-backend:1h"
+                    </span>
                   </div>
                   <div className="flex pl-4">
                     <span className="text-[#9cdcfe] mr-2">path:</span>
@@ -322,7 +367,9 @@ export default function Home() {
                   </div>
                   <div className="flex pl-8">
                     <span className="text-[#9cdcfe] mr-2">DATABASE_URL:</span>
-                    <span className="text-[#22B4C8]">"postgresql://user:pass@db.pod:5432/appdb"</span>
+                    <span className="text-[#22B4C8]">
+                      "postgresql://user:pass@db.pod:5432/appdb"
+                    </span>
                   </div>
                 </div>
               </motion.div>
@@ -348,7 +395,8 @@ export default function Home() {
                 </motion.h3>
                 <p className="text-sm text-[#22B4C8] mb-3">Tech: OpenAI API</p>
                 <p className="text-gray-300 mb-4">
-                  Let your users ask questions, summarize notes, or chat with their data — right inside your app.
+                  Let your users ask questions, summarize notes, or chat with
+                  their data — right inside your app.
                 </p>
               </div>
               <motion.div
@@ -356,11 +404,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 255, 204, 0.1)" }}
+                whileHover={{
+                  y: -5,
+                  boxShadow: "0 10px 25px -5px rgba(0, 255, 204, 0.1)",
+                }}
                 className="bg-[#0a0a0a] rounded-xl p-6 border border-[#333]"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <p className="text-sm font-medium text-gray-300">Add secret mount + env var for API key</p>
+                  <p className="text-sm font-medium text-gray-300">
+                    Add secret mount + env var for API key
+                  </p>
                   <div className="flex space-x-2">
                     <button className="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded hover:bg-[#333] transition-colors">
                       Copy
@@ -372,7 +425,9 @@ export default function Home() {
                 </div>
                 <div className="bg-[#0a0a0a] text-[#d4d4d4] p-4 rounded-lg text-sm overflow-x-auto font-mono">
                   <div className="flex pl-4">
-                    <span className="text-gray-500"># 🤖 OpenAI API wrapper (proxy or backend integration)</span>
+                    <span className="text-gray-500">
+                      # 🤖 OpenAI API wrapper (proxy or backend integration)
+                    </span>
                   </div>
                   <div className="flex pl-4">
                     <span className="text-[#d7ba7d] mr-2">-</span>
@@ -381,7 +436,9 @@ export default function Home() {
                   </div>
                   <div className="flex pl-4">
                     <span className="text-[#9cdcfe] mr-2">image:</span>
-                    <span className="text-[#ce9178]">"user-name/openai:latest"</span>
+                    <span className="text-[#ce9178]">
+                      "user-name/openai:latest"
+                    </span>
                   </div>
                   <div className="flex pl-4">
                     <span className="text-[#9cdcfe] mr-2">servicePorts:</span>
@@ -394,8 +451,12 @@ export default function Home() {
                     <span className="text-[#9cdcfe] mr-2">vars:</span>
                   </div>
                   <div className="flex pl-8">
-                    <span className="text-[#9cdcfe] mr-2">OPENAI_API_KEY_PATH:</span>
-                    <span className="text-[#22B4C8]">"/var/secrets/openai/key.txt"</span>
+                    <span className="text-[#9cdcfe] mr-2">
+                      OPENAI_API_KEY_PATH:
+                    </span>
+                    <span className="text-[#22B4C8]">
+                      "/var/secrets/openai/key.txt"
+                    </span>
                   </div>
                   <div className="flex pl-4">
                     <span className="text-[#9cdcfe] mr-2">secrets:</span>
@@ -411,7 +472,9 @@ export default function Home() {
                   </div>
                   <div className="flex pl-8">
                     <span className="text-[#9cdcfe] mr-2">mountPath:</span>
-                    <span className="text-[#22B4C8]">"/var/secrets/openai"</span>
+                    <span className="text-[#22B4C8]">
+                      "/var/secrets/openai"
+                    </span>
                   </div>
                   <div className="flex pl-8">
                     <span className="text-[#9cdcfe] mr-2">fileName:</span>
@@ -430,15 +493,22 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
               className="bg-[#0a0a0a] rounded-xl p-10 text-center border border-[#333]"
             >
-              <h3 className="text-2xl font-medium mb-6 text-white">Try This Stack</h3>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button className="bg-[#22B4C8] hover:bg-[#1DA3B6] text-black px-8 py-6 rounded-full text-lg mb-4">
-                  Try the playground
-                </Button>
+              <h3 className="text-2xl font-medium mb-6 text-white">
+                Try This Stack
+              </h3>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link href="https://nexlayer.com/playground" target="_blank">
+                  <Button className="bg-[#22B4C8] hover:bg-[#1DA3B6] text-black px-8 py-6 rounded-full text-lg mb-4">
+                    Try the playground
+                  </Button>
+                </Link>
               </motion.div>
               <p className="text-gray-300 max-w-2xl mx-auto">
-                Prebuilt: Next.js frontend, Supabase auth, PostgreSQL DB, Prisma backend, and OpenAI agent — all live in
-                minutes.
+                Prebuilt: Next.js frontend, Supabase auth, PostgreSQL DB, Prisma
+                backend, and OpenAI agent — all live in minutes.
               </p>
             </motion.div>
           </div>
@@ -449,9 +519,12 @@ export default function Home() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-light mb-4 gradient-text">Why Developers Love Nexlayer</h2>
+            <h2 className="text-3xl font-light mb-4 gradient-text">
+              Why Developers Love Nexlayer
+            </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Built for developers who want to ship faster, scale effortlessly, and skip the DevOps headaches.
+              Built for developers who want to ship faster, scale effortlessly,
+              and skip the DevOps headaches.
             </p>
           </div>
 
@@ -481,26 +554,54 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-[#0a0a0a] border-t border-[#333]">
+      <section className="pt-24 bg-[#0a0a0a] border-t border-[#333]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-light mb-6 gradient-text">Ready to simplify your deployment?</h2>
+          <h2 className="text-3xl font-light mb-6 gradient-text">
+            Ready to simplify your deployment?
+          </h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Join thousands of developers who are shipping faster with Nexlayer.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-[#22B4C8] hover:bg-[#1DA3B6] text-black px-8 py-6 rounded-full text-lg">
-              Get Started for Free
-            </Button>
-            <Button
-              variant="outline"
-              className="border-[#22B4C8] text-white hover:bg-[#111] hover:text-[#22B4C8] px-8 py-6 rounded-full text-lg"
+            <Link href="https://app.nexlayer.io/" target="_blank">
+              <Button className="bg-[#22B4C8] hover:bg-[#1DA3B6] text-black px-8 py-6 rounded-full text-lg">
+                Get Started for Free
+              </Button>
+            </Link>
+            <Link
+              href="https://github.com/Nexlayer/documentation/issues"
+              target="_blank"
             >
-              <MessageSquare className="mr-2 h-5 w-5" />
-              Send Feedback
-            </Button>
+              <Button
+                variant="outline"
+                className="border-[#22B4C8] text-white hover:bg-[#111] hover:text-[#22B4C8] px-8 py-6 rounded-full text-lg"
+              >
+                <MessageSquare className="mr-2 h-5 w-5" />
+                Send Feedback
+              </Button>
+            </Link>
           </div>
         </div>
+
+        <Link
+          href="https://github.com/Nexlayer/documentation/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <section className="mt-14 text-lg border border-gray-700 max-w-[290px] mx-auto bg-[#0c0e1a] rounded-xl p-4 mb-24 hover:border-[#26b6be]">
+            <p>Was this article helps to you?</p>
+            <div className="flex gap-3 items-center pt-1">
+              <Image
+                src={GithubIcon}
+                alt="Github icon"
+                width={30}
+                height={30}
+              />
+              <p className="text-[#1ca3b7] font-semibold">Provide feedback</p>
+            </div>
+          </section>
+        </Link>
       </section>
     </div>
-  )
+  );
 }

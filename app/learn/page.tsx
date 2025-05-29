@@ -1,5 +1,5 @@
-"use client"
-import { motion } from "framer-motion"
+"use client";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Terminal,
@@ -13,25 +13,27 @@ import {
   Copy,
   Check,
   Shield,
-} from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { GuideStep } from "@/components/learn/guide-step"
-import { ScrollStepSection } from "@/components/learn/scroll-step-section"
-import { VideoPreview } from "@/components/learn/video-preview"
-import { FeatureCard } from "@/components/learn/feature-card"
-import { useState } from "react"
-import { CodeTab } from "@/components/learn/code-tab" // Import CodeTab here
-import Image from "next/image"
+} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { GuideStep } from "@/components/learn/guide-step";
+import { ScrollStepSection } from "@/components/learn/scroll-step-section";
+import { VideoPreview } from "@/components/learn/video-preview";
+import { FeatureCard } from "@/components/learn/feature-card";
+import { useState } from "react";
+import { CodeTab } from "@/components/learn/code-tab"; // Import CodeTab here
+import Image from "next/image";
+import PernProjectImage from "@/components/assets/images/nexlayer-dashboard-pern-project.png";
+import GithubIcon from "@/components/assets/svgs/github.svg";
 
 export default function LearnPage() {
-  const [copiedCommand, setCopiedCommand] = useState<string | null>(null)
+  const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
 
   const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
-    setCopiedCommand(text)
-    setTimeout(() => setCopiedCommand(null), 2000)
-  }
+    navigator.clipboard.writeText(text);
+    setCopiedCommand(text);
+    setTimeout(() => setCopiedCommand(null), 2000);
+  };
 
   const renderTerminal = (command: string) => (
     <div className="bg-[#0a0a0a] rounded-lg p-4 font-mono text-sm overflow-x-auto border border-[#333] relative group code-block">
@@ -42,23 +44,38 @@ export default function LearnPage() {
         className="absolute right-2 top-2 p-1.5 rounded-md bg-[#222] text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity"
         aria-label="Copy command"
       >
-        {copiedCommand === command ? <Check className="h-4 w-4 text-[#22B4C8]" /> : <Copy className="h-4 w-4" />}
+        {copiedCommand === command ? (
+          <Check className="h-4 w-4 text-[#22B4C8]" />
+        ) : (
+          <Copy className="h-4 w-4" />
+        )}
       </button>
     </div>
-  )
+  );
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-3xl font-light mb-4 gradient-text">Learn Nexlayer Deployment</h1>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-3xl font-light mb-4 gradient-text">
+              Learn Nexlayer Deployment
+            </h1>
             <p className="text-xl text-gray-300 mb-8">
-              A step-by-step guide to deploying AI applications on Nexlayer with ready-to-use examples.
+              A step-by-step guide to deploying AI applications on Nexlayer with
+              ready-to-use examples.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="https://nexlayer.com/playground" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://nexlayer.com/playground"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button className="bg-[#22B4C8] hover:bg-[#1DA3B6] text-black">
                   Open Playground
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -72,97 +89,106 @@ export default function LearnPage() {
       {/* Features Section */}
       <section className="py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="mb-16"
-    >
-      <h2 className="text-4xl sm:text-5xl font-serif font-semibold tracking-tight text-white mb-10">
-        Why Nexlayer Exists
-      </h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-4xl sm:text-5xl font-serif font-semibold tracking-tight text-white mb-10">
+              Why Nexlayer Exists
+            </h2>
 
-      <div className="space-y-10 text-xl leading-loose text-gray-300">
-        <p>
-          <span className="block text-white font-medium">With AI, building an app is easy now.</span>
-          AI writes code.  
-          <br />
-          Designs UIs.  
-          <br />
-          Connects APIs.  
-          <br />
-          In minutes, you have something that looks and feels <em>real</em>.
-        </p>
+            <div className="space-y-10 text-xl leading-loose text-gray-300">
+              <p>
+                <span className="block text-white font-medium">
+                  With AI, building an app is easy now.
+                </span>
+                AI writes code.
+                <br />
+                Designs UIs.
+                <br />
+                Connects APIs.
+                <br />
+                In minutes, you have something that looks and feels{" "}
+                <em>real</em>.
+              </p>
 
-        <p className="text-white font-semibold text-2xl">
-          But the second you try to ship it — everything breaks.
-        </p>
+              <p className="text-white font-semibold text-2xl">
+                But the second you try to ship it — everything breaks.
+              </p>
 
-        <p>
-          Getting it live — <strong>truly live</strong>, <br />
-          <strong>production-ready</strong>, <br />
-          <strong>scalable</strong> — is still broken.
-        </p>
+              <p>
+                Getting it live — <strong>truly live</strong>, <br />
+                <strong>production-ready</strong>, <br />
+                <strong>scalable</strong> — is still broken.
+              </p>
 
-        <p>
-          Most tools were designed for <em>development</em>, not delivery.  
-          <br />
-          They assume you're testing, not shipping.  
-          <br />
-          They generate beautiful code —  
-          <br />
-          then leave you stranded.  
-          <br />
-          Wiring up the backend.  
-          <br />
-          The database.  
-          <br />
-          The AI model…  
-          <span className="block text-white font-medium mt-2">Alone.</span>
-        </p>
+              <p>
+                Most tools were designed for <em>development</em>, not delivery.
+                <br />
+                They assume you're testing, not shipping.
+                <br />
+                They generate beautiful code —
+                <br />
+                then leave you stranded.
+                <br />
+                Wiring up the backend.
+                <br />
+                The database.
+                <br />
+                The AI model…
+                <span className="block text-white font-medium mt-2">
+                  Alone.
+                </span>
+              </p>
 
-        <p className="italic text-gray-400">
-          That’s where momentum dies.  
-          <br />
-          Where ideas stall.  
-          <br />
-          Where creators burn out before launch.
-        </p>
+              <p className="italic text-gray-400">
+                That’s where momentum dies.
+                <br />
+                Where ideas stall.
+                <br />
+                Where creators burn out before launch.
+              </p>
 
-        <p className="text-white text-2xl font-semibold tracking-wide">
-          Nexlayer exists to fix that.
-        </p>
+              <p className="text-white text-2xl font-semibold tracking-wide">
+                Nexlayer exists to fix that.
+              </p>
 
-        <p>
-          Not just another PaaS.  
-          <br />
-          An execution layer where agents ship & scale any app.
-          <br />
-          Machine-readable. Agent-native. Engineered for scale.
-</p>
+              <p>
+                Not just another PaaS.
+                <br />
+                An execution layer where agents ship & scale any app.
+                <br />
+                Machine-readable. Agent-native. Engineered for scale.
+              </p>
 
-        <p className="text-white">
-          No boilerplate.  
-          <br />
-          No dead ends.  
-          <br />
-          No busywork.  
-          <br />
-          <span className="font-medium">Just a clear path from prototype to product.</span>
-        </p>
+              <p className="text-white">
+                No boilerplate.
+                <br />
+                No dead ends.
+                <br />
+                No busywork.
+                <br />
+                <span className="font-medium">
+                  Just a clear path from prototype to product.
+                </span>
+              </p>
 
-        <p>
-          You define what your app <em>is</em>.  
-          <br />
-          We handle the rest — infrastructure, scale, services — <span className="font-semibold">instantly.</span>
-        </p>
+              <p>
+                You define what your app <em>is</em>.
+                <br />
+                We handle the rest — infrastructure, scale, services —{" "}
+                <span className="font-semibold">instantly.</span>
+              </p>
 
-        <p className="text-2xl text-white font-semibold leading-snug">
-          Because execution is everything.
-          <br />
-          Ideas are cheap. Execution wins. The future belongs to those who ship fast.
-</p>
+              <p className="text-2xl text-white font-semibold leading-snug">
+                Because execution is everything.
+                <br />
+                Ideas are cheap. Execution wins. The future belongs to those who
+                ship fast.
+              </p>
             </div>
           </motion.div>
 
@@ -232,7 +258,7 @@ export default function LearnPage() {
       </section>
 
       {/* Get Started Guide */}
-      <section id="get-started" className="py-16">
+      <section id="get-started" className="pt-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
@@ -241,9 +267,12 @@ export default function LearnPage() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-2xl font-light mb-4 text-white">Get Started in 3 Steps</h2>
+            <h2 className="text-2xl font-light mb-4 text-white">
+              Get Started in 3 Steps
+            </h2>
             <p className="text-lg text-gray-300">
-              Follow this simple guide to deploy your first application on Nexlayer.
+              Follow this simple guide to deploy your first application on
+              Nexlayer.
             </p>
           </motion.div>
 
@@ -296,8 +325,12 @@ export default function LearnPage() {
               <p className="text-sm text-gray-300 flex items-start">
                 <span className="flex-shrink-0 mr-2">💡</span>
                 <span>
-                  <strong>Tip:</strong> The YAML file defines your entire application stack. Pods can communicate with
-                  each other using <code className="bg-[#222] px-1 py-0.5 rounded">podname.pod</code> DNS naming.
+                  <strong>Tip:</strong> The YAML file defines your entire
+                  application stack. Pods can communicate with each other using{" "}
+                  <code className="bg-[#222] px-1 py-0.5 rounded">
+                    podname.pod
+                  </code>{" "}
+                  DNS naming.
                 </span>
               </p>
             </div>
@@ -367,16 +400,21 @@ jobs:
                   name: "GUI",
                   language: "text",
                   code: `1. Open https://nexlayer.com/playground
-2. Paste your YAML in the editor
+2. Select template or build your own app launchfile
 3. Click "Deploy" button
 4. Watch your application deploy in real-time`,
                 },
               ]}
             />
-            <VideoPreview
-              src="/videos/deployment-intelligence-nexlayer.mp4"
-              alt="Nexlayer Deployment Intelligence Dashboard"
-            />
+            <video
+              controls
+              autoPlay
+              width="100%"
+              className="rounded-lg border border-gray-700"
+            >
+              <source src="https://ik.imagekit.io/ahujh91zr/deployment-intelligence-nexlayer.mp4?updatedAt=1748527613599" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </ScrollStepSection>
 
           <ScrollStepSection>
@@ -390,22 +428,23 @@ jobs:
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="rounded-xl overflow-hidden border border-[#333] shadow-2xl my-8"
+              className="rounded-lg overflow-hidden border border-[#333] shadow-2xl my-8"
             >
               <Image
-                src="/images/nexlayer-dashboard-pern-project.png"
+                src={PernProjectImage}
                 alt="Nexlayer Dashboard showing a deployed MERN Todo App"
                 width={1200}
-                height={675}
-                className="w-full h-auto"
+                height={575}
+                className="w-full max-h-[475px]"
               />
             </motion.div>
             <div className="bg-[#111] rounded-lg p-4 border border-[#333] my-6">
               <p className="text-sm text-gray-300 flex items-start">
                 <span className="flex-shrink-0 mr-2">🔒</span>
                 <span>
-                  <strong>Note:</strong> All applications are deployed with HTTPS by default. Custom domains can be
-                  configured in the dashboard.
+                  <strong>Note:</strong> All applications are deployed with
+                  HTTPS by default. Custom domains can be configured in the
+                  dashboard.
                 </span>
               </p>
             </div>
@@ -414,7 +453,7 @@ jobs:
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="pt-10 pb-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -422,16 +461,24 @@ jobs:
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl font-light text-white mb-6">Ready to Deploy Your Application?</h2>
+            <h2 className="text-2xl font-light text-white mb-6">
+              Ready to Deploy Your Application?
+            </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-              Get started with Nexlayer today and experience the simplest way to deploy AI applications.
+              Get started with Nexlayer today and experience the simplest way to
+              deploy AI applications.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="https://app.nexlayer.io/#/signup">
-                <Button className="bg-[#22B4C8] hover:bg-[#1DA3B6] text-black">Sign Up Free</Button>
+                <Button className="bg-[#22B4C8] hover:bg-[#1DA3B6] text-black">
+                  Sign Up Free
+                </Button>
               </Link>
               <Link href="https://app.nexlayer.io/#/playground">
-                <Button variant="outline" className="border-[#333] hover:border-[#22B4C8]">
+                <Button
+                  variant="outline"
+                  className="border-[#333] hover:border-[#22B4C8]"
+                >
                   Try Playground
                 </Button>
               </Link>
@@ -439,6 +486,20 @@ jobs:
           </motion.div>
         </div>
       </section>
+
+      <Link
+        href="https://github.com/Nexlayer/documentation/issues"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <section className="text-lg border border-gray-700 max-w-[290px] mx-auto bg-[#0c0e1a] rounded-xl p-4 mb-16 hover:border-[#26b6be]">
+          <p>Was this article helps to you?</p>
+          <div className="flex gap-3 items-center pt-1">
+            <Image src={GithubIcon} alt="Github icon" width={30} height={30} />
+            <p className="text-[#1ca3b7] font-semibold">Provide feedback</p>
+          </div>
+        </section>
+      </Link>
     </div>
-  )
+  );
 }

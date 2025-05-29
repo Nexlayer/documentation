@@ -1,9 +1,11 @@
 "use client"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { getEndpoints } from "@/lib/openapi"
 import { EndpointCard } from "@/components/api/endpoint-card"
 import { ScrollReveal } from "@/components/api/scroll-reveal"
+import GithubIcon from "@/components/assets/svgs/github.svg";
 
 interface Endpoint {
   path: string
@@ -63,6 +65,24 @@ export default function ApiReferenceClientPage() {
           ))}
         </div>
       </div>
+       <Link
+          href="https://github.com/Nexlayer/documentation/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <section className="mt-14 text-lg border border-gray-700 max-w-[300px] mx-auto bg-[#0c0e1a] rounded-xl p-4 mb-24 hover:border-[#26b6be]">
+            <p>Was this article helps to you?</p>
+            <div className="flex gap-3 items-center pt-1">
+              <Image
+                src={GithubIcon}
+                alt="Github icon"
+                width={30}
+                height={30}
+              />
+              <p className="text-[#1ca3b7] font-semibold">Provide feedback</p>
+            </div>
+          </section>
+        </Link>
     </div>
   )
 }
