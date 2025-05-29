@@ -409,10 +409,16 @@ jobs:
             <video
               controls
               autoPlay
+              loop
+              muted
+              playsInline
               width="100%"
               className="rounded-lg border border-gray-700"
             >
-              <source src="https://ik.imagekit.io/ahujh91zr/deployment-intelligence-nexlayer.mp4?updatedAt=1748527613599" type="video/mp4" />
+              <source
+                src="https://ik.imagekit.io/ahujh91zr/deployment-intelligence-nexlayer.mp4?updatedAt=1748527613599"
+                type="video/mp4"
+              />
               Your browser does not support the video tag.
             </video>
           </ScrollStepSection>
@@ -453,7 +459,7 @@ jobs:
       </section>
 
       {/* CTA Section */}
-      <section className="pt-10 pb-16">
+      <section className="pb-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -487,19 +493,21 @@ jobs:
         </div>
       </section>
 
-      <Link
-        href="https://github.com/Nexlayer/documentation/issues"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <section className="text-lg border border-gray-700 max-w-[290px] mx-auto bg-[#0c0e1a] rounded-xl p-4 mb-16 hover:border-[#26b6be]">
-          <p>Was this article helps to you?</p>
-          <div className="flex gap-3 items-center pt-1">
-            <Image src={GithubIcon} alt="Github icon" width={30} height={30} />
-            <p className="text-[#1ca3b7] font-semibold">Provide feedback</p>
+      <section className="text-sm font-normal mb-20 flex justify-center">
+        <div>
+          <p>Was this article helpful to you?</p>
+          <div className="flex gap-2 items-center pt-1">
+            <Image src={GithubIcon} alt="Github icon" width={24} height={24} />
+            <Link
+              href="https://github.com/Nexlayer/documentation/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p className="text-[#1ca3b7] underline">Provide feedback</p>
+            </Link>
           </div>
-        </section>
-      </Link>
+        </div>
+      </section>
     </div>
   );
 }

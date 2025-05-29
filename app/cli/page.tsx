@@ -562,20 +562,27 @@ export default function CliPage() {
             </div>
           </div>
         </div>
-      </div>
-      <Link
-        href="https://github.com/Nexlayer/documentation/issues"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <section className="mt-14 text-lg border border-gray-700 max-w-[290px] mx-auto bg-[#0c0e1a] rounded-xl p-4 mb-24 hover:border-[#26b6be]">
-          <p>Was this article helps to you?</p>
-          <div className="flex gap-3 items-center pt-1">
-            <Image src={GithubIcon} alt="Github icon" width={30} height={30} />
-            <p className="text-[#1ca3b7] font-semibold">Provide feedback</p>
+        <section className="mt-10 text-sm font-normal mb-8">
+          <div>
+            <p>Was this article helpful to you?</p>
+            <div className="flex gap-2 items-center pt-1">
+              <Image
+                src={GithubIcon}
+                alt="Github icon"
+                width={24}
+                height={24}
+              />
+              <Link
+                href="https://github.com/Nexlayer/documentation/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="text-[#1ca3b7] underline">Provide feedback</p>
+              </Link>
+            </div>
           </div>
         </section>
-      </Link>
+      </div>
     </div>
   );
 }
