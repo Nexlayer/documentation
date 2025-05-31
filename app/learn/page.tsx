@@ -441,7 +441,7 @@ jobs:
                 alt="Nexlayer Dashboard showing a deployed MERN Todo App"
                 width={1200}
                 height={575}
-                className="w-full max-h-[475px]"
+                className="w-full max-h-[575px]"
               />
             </motion.div>
             <div className="bg-[#111] rounded-lg p-4 border border-[#333] my-6">
@@ -480,7 +480,7 @@ jobs:
                   Sign Up Free
                 </Button>
               </Link>
-              <Link href="https://app.nexlayer.io/#/playground">
+              <Link href="https://nexlayer.com/playground">
                 <Button
                   variant="outline"
                   className="border-[#333] hover:border-[#22B4C8]"
